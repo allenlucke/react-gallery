@@ -1,0 +1,8 @@
+.Showing{
+    height: auto;
+}
+
+.notShowing{
+    height: 0;
+    overflow: hidden;
+}
