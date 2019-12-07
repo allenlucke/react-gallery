@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
+import GalleryList from '../galleryList/galleryList';
 
 class App extends Component {
 
@@ -35,11 +36,7 @@ class App extends Component {
     })
   }
   render() {
-    const galleryListData = this.state.galleryList.map((item, index) => {
-      return (
-      <img src={item.path} key={index} alt="not again"/>
-      )
-    })
+    
     return (
       <div className="App">
         <header className="App-header">
@@ -47,9 +44,8 @@ class App extends Component {
         </header>
         <br/>
         <p>Gallery goes here</p>
-        <div>{galleryListData}</div>
-        <img src="images/goat_small.jpg" alt="not again"/>
-        <img src="images/img1.jpg" alt="not again"/>
+        <GalleryList list= {this.state.galleryList}/>
+        
       </div>
     );
   }
