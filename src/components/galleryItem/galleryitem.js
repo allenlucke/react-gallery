@@ -6,28 +6,44 @@ class GalleryItem extends Component {
         super(props);
 
         this.state = {
-
+            isShowing: true,
         }
     }
+    onClickSwap = (event) => {
+        this.setState({
+            isShowing: !this.state.isShowing,
+        })
+    }
+
     render() {
         const title=this.props.title;
         const path=this.props.path;
         const description=this.props.description;
         const likes=this.props.likes;
 
-        // onClickSwap = (event) => {}
+        let showImg;
+        let showDescription
+
+        if(this.state.isShowing) {
+            showImg = 'showing';
+            showDescription = 'notShowing'
+        }else if(!this.state.isShowing) {
+            showImg = 'notShowing';
+            showDescription = 'showing'
+        }
+
 
     return(
         <div>
             <div>
-                <div class="showing">
-                    <img on Click={this.onClickSwap} src={path} alt="oh no"/>
+                <div className={showImg} onClick={this.onClickSwap}>
+                    <img src={path} alt="oh no"/>
                 </div>
-                <div class="notShowing">
+                <div className={showDescription} onClick={this.onClickSwap}>
                     <h4>{title}</h4>
                     <p>{description}</p>
-                    <p>{likes}</p>
                 </div>
+                <p>{likes}</p>
             </div>
         </div>
         )
