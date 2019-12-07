@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './galleryItem.css';
+import axios from 'axios';
 
 class GalleryItem extends Component {
     constructor(props) {
@@ -9,6 +10,7 @@ class GalleryItem extends Component {
             isShowing: true,
         }
     }
+
     onClickSwap = (event) => {
         this.setState({
             isShowing: !this.state.isShowing,
@@ -20,6 +22,7 @@ class GalleryItem extends Component {
         const path=this.props.path;
         const description=this.props.description;
         const likes=this.props.likes;
+        const id=this.props.id;
 
         let showImg;
         let showDescription
@@ -36,14 +39,16 @@ class GalleryItem extends Component {
     return(
         <div>
             <div>
+                <h3>{title}</h3>
                 <div className={showImg} onClick={this.onClickSwap}>
-                    <img src={path} alt="oh no"/>
+                    <img src={path} alt="Oh No!!! Not Again."/>
                 </div>
                 <div className={showDescription} onClick={this.onClickSwap}>
-                    <h4>{title}</h4>
-                    <p>{description}</p>
+                    <h4>{description}</h4>
+                <h5>{id}</h5>
                 </div>
-                <p>{likes}</p>
+                <button onClick={this.props.putLikes}>Likes: {likes}</button>
+                
             </div>
         </div>
         )

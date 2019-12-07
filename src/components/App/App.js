@@ -2,19 +2,12 @@ import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
 import GalleryList from '../galleryList/galleryList';
-import GalleryItem from '../galleryItem/galleryitem'
+//import GalleryItem from '../galleryItem/galleryitem'
 
 class App extends Component {
 
   state = {
     galleryList: [],
-    enteredData: {
-      id: '',
-      title: '',
-      path: '',
-      description: '',
-      likes: '',
-    }
   }
 
   componentDidMount() {
@@ -39,22 +32,21 @@ class App extends Component {
   }
 
   //PUT Call
-  putGalleryList = (likes, idNumberToPut) => {
-    axios({
-      method: 'PUT',
-      url: '/gallery' + idNumberToPut,
-      data: {
-        likes: likes += 1
-      }
-    })
-    .then((response) => {
-      console.log('PUT complete');
-      this.getGalleryList();
-    })
-    .catch((err) => {
-      console.warn(err);
-    })
+  putLikes = (event) => {
+  console.log('Hi"')    
+  axios({
+    method: 'PUT',
+    url: '/gallery/likes/' + 1,  
+  })
+  .then((response) => {
+    console.log('PUT complete');
+    this.getGalleryList();
+  })
+  .catch((err) => {
+    console.warn(err);
+  })
   }
+
 
   render() {
       
@@ -64,10 +56,7 @@ class App extends Component {
           <h1 className="App-title">Gallery of my life</h1>
         </header>
         <br/>
-        
-        <p>Gallery goes here</p>
-        <GalleryList list= {this.state.galleryList}/>
-        
+        <GalleryList list= {this.state.galleryList} putLikes={this.putLikes}/>
       </div>
     );
   }
