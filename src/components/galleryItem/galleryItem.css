@@ -6,3 +6,7 @@
     height: 0;
     overflow: hidden;
 }
+
+button{
+    background-color: aqua;
+}

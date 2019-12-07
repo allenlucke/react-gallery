@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
 import GalleryList from '../galleryList/galleryList';
-//import GalleryItem from '../galleryItem/galleryitem'
+//import GalleryItem from '../galleryItem/galleryItem'
 
 class App extends Component {
 
@@ -32,11 +32,11 @@ class App extends Component {
   }
 
   //PUT Call
-  putLikes = (event) => {
-  console.log('Hi"')    
+  putLikes= ({id}) => { 
+  console.log(id)   
   axios({
     method: 'PUT',
-    url: '/gallery/likes/' + 1,  
+    url: '/gallery/likes/'+id,  
   })
   .then((response) => {
     console.log('PUT complete');
@@ -51,12 +51,14 @@ class App extends Component {
   render() {
       
     return (
+      <div>
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Gallery of my life</h1>
         </header>
         <br/>
-        <GalleryList list= {this.state.galleryList} putLikes={this.putLikes}/>
+        <GalleryList list= {this.state.galleryList} putLikes= {this.putLikes}/>
+      </div>
       </div>
     );
   }
