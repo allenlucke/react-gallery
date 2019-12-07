@@ -7,6 +7,10 @@
     overflow: hidden;
 }
 
+.clickable{
+    cursor: pointer;
+}
+
 button{
     background-color: aqua;
 }

@@ -39,12 +39,12 @@ class GalleryItem extends Component {
             <div>
                 <h3>{title}</h3>
                 <div className={showImg} onClick={this.onClickSwap}>
-                    <img src={path} alt="Oh No!!! Not Again."/>
+                    <img class="clickable" src={path} alt="Oh No!!! Not Again."/>
                 </div>
                 <div className={showDescription} onClick={this.onClickSwap}>
-                    <h4>{description}</h4>
+                    <h4 class="clickable">{description}</h4>
                 </div>
-                <button onClick={() => this.props.putLikes({id})}>Likes: {likes}</button>
+                <button class="clickable" onClick={() => this.props.putLikes({id})}>Likes: {likes}</button>
             </div>
         )
     }
