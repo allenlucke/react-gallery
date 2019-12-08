@@ -8,6 +8,13 @@ class App extends Component {
 
   state = {
     galleryList: [],
+    newGalleryItem: {
+      id: '',
+      title: '',
+      path: '',
+      description: '',
+      likes: '',
+    }
   }
 
   componentDidMount() {
@@ -25,6 +32,22 @@ class App extends Component {
       }, () => {
         console.log(this.state);
       });
+    })
+    .catch((err) => {
+      console.warn(err);
+    })
+  }
+
+  //POST call
+  postGalleryItem() {
+    axios({
+      method: 'POST',
+      url: '/gallery',
+      data: this.state.newGalleryItem
+    })
+    .then((response) => {
+      console.log(response);
+      this.getGalleryList();
     })
     .catch((err) => {
       console.warn(err);
