@@ -71,7 +71,7 @@ class App extends Component {
   }
 
   //DELETE Call
-  deleteGalleryItem = (id) => {
+  deleteGalleryItem = ({id}) => {
     console.log(id)
     axios({
       method: 'DELETE',
@@ -133,7 +133,7 @@ class App extends Component {
           <button class="clickable" onClick={this.onAddGalleryItem}>Add Memory</button>
         </div>
         <br/>
-        <GalleryList list= {this.state.galleryList} putLikes= {this.putLikes}/>
+        <GalleryList list= {this.state.galleryList} putLikes= {this.putLikes} deleteGalleryItem= {this.deleteGalleryItem}/>
       </div>
       </div>
     );

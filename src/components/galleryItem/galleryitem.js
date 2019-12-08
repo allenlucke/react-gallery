@@ -45,6 +45,9 @@ class GalleryItem extends Component {
                     <h4 class="clickable">{description}</h4>
                 </div>
                 <button class="clickable" onClick={() => this.props.putLikes({id})}>Likes: {likes}</button>
+                <div>
+                <button class="redClickable" onClick={() => this.props.deleteGalleryItem({id})}>Delete Memory</button>
+                </div>
             </div>
         )
     }

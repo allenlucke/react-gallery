@@ -12,7 +12,8 @@ class GalleryList extends Component {
                     path={item.path}
                     description={item.description}
                     likes={item.likes}
-                    putLikes={this.props.putLikes}/>
+                    putLikes={this.props.putLikes}
+                    deleteGalleryItem={this.props.deleteGalleryItem}/>
                 </div>
             )
         })

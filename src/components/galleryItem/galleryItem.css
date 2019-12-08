@@ -11,6 +11,11 @@
     cursor: pointer;
 }
 
+.redClickable{
+    cursor: pointer;
+    background-color: red;
+}
+
 button{
     background-color: aqua;
 }
