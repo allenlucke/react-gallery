@@ -70,6 +70,23 @@ class App extends Component {
   })
   }
 
+  //DELETE Call Goes Here
+
+  //EVENT HANDLERS
+
+  onChangeInputData = (event, inputKey) => {
+    console.log(event, inputKey);
+    this.setState({
+      newGalleryItem: {
+        ...this.state.newGalleryItem,
+        [inputKey]: event.target.value
+      }
+    });
+  }
+
+  onAddGalleryItem = (event) => {
+    this.postGalleryItem();
+  }
 
   render() {
       
@@ -79,6 +96,28 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Gallery of my life</h1>
         </header>
+        <br/>
+        <div>
+          <h2>Add a Memory to the Gallery</h2>
+          <div>
+            <input
+              type="text"
+              placeholder="Title"
+              onChange={(event) => this.onChangeInputData(event, 'title')}
+            />
+            <input
+              type="text"
+              placeholder="Path/Url"
+              onChange={(event) => this.onChangeInputData(event, 'path')}
+            />
+            <input
+              type="text"
+              placeholder="Description"
+              onChange={(event) => this.onChangeInputData(event, 'description')}
+            />
+          </div>
+          <button class="clickable" onClick={this.onAddGalleryItem}>Add Memory</button>
+        </div>
         <br/>
         <GalleryList list= {this.state.galleryList} putLikes= {this.putLikes}/>
       </div>
