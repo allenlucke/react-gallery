@@ -6,7 +6,7 @@ Duration: 15 hours
 The React-Gallery is a web application that allows the user to keep store their favorite images. You can like, delete or add new images as well as clicking on them to view the description.
 
 ## Screen Shot
-!![](public/images/screenShot1.png)
+![](public/images/screenShot1.png)
 
 ## Usage
 1. Add and image to the gallery by filling out the form and clicking the "Add Memory" button.
