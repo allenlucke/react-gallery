@@ -1,3 +1,10 @@
+body{
+  background-color:lightcyan;
+}
+input{
+  width: 200px;
+}
+
 .App {
   text-align: center;
 }
@@ -25,4 +32,3 @@
 .clickable{
   cursor: pointer;
 }
-

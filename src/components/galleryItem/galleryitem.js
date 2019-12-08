@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './galleryItem.css';
-//import axios from 'axios';
+
 
 class GalleryItem extends Component {
     constructor(props) {
@@ -36,17 +36,17 @@ class GalleryItem extends Component {
         }
 
     return(
-            <div>
+            <div className="container">
                 <h3>{title}</h3>
                 <div className={showImg} onClick={this.onClickSwap}>
-                    <img class="clickable" src={path} alt="Oh No!!! Not Again."/>
+                    <img className="clickable" src={path} alt="Oh No!!! Not Again."/>
                 </div>
                 <div className={showDescription} onClick={this.onClickSwap}>
-                    <h4 class="clickable">{description}</h4>
+                    <h4 className="clickable">{description}</h4>
                 </div>
-                <button class="clickable" onClick={() => this.props.putLikes({id})}>Likes: {likes}</button>
+                <button className="clickable" onClick={() => this.props.putLikes({id})}>Likes: {likes}</button>
                 <div>
-                <button class="redClickable" onClick={() => this.props.deleteGalleryItem({id})}>Delete Memory</button>
+                    <button className="redClickable" onClick={() => this.props.deleteGalleryItem({id})}>Delete Memory</button>
                 </div>
             </div>
         )

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
 import GalleryList from '../galleryList/galleryList';
-//import GalleryItem from '../galleryItem/galleryItem'
 
 class App extends Component {
 
@@ -130,7 +129,7 @@ class App extends Component {
               onChange={(event) => this.onChangeInputData(event, 'description')}
             />
           </div>
-          <button class="clickable" onClick={this.onAddGalleryItem}>Add Memory</button>
+          <button className="clickable" onClick={this.onAddGalleryItem}>Add Memory</button>
         </div>
         <br/>
         <GalleryList list= {this.state.galleryList} putLikes= {this.putLikes} deleteGalleryItem= {this.deleteGalleryItem}/>
