@@ -70,10 +70,24 @@ class App extends Component {
   })
   }
 
-  //DELETE Call Goes Here
+  //DELETE Call
+  deleteGalleryItem = (id) => {
+    console.log(id)
+    axios({
+      method: 'DELETE',
+      url: '/gallery/'+id,
+    })
+    .then((response) => {
+      console.log(response);
+      this.getGalleryList();
+    })
+    .catch((err) => {
+      console.warn(err);
+    })
+  }
 
   //EVENT HANDLERS
-
+  //Tracks change in input fields
   onChangeInputData = (event, inputKey) => {
     console.log(event, inputKey);
     this.setState({
@@ -83,7 +97,7 @@ class App extends Component {
       }
     });
   }
-
+  //Triggers POST of current input values
   onAddGalleryItem = (event) => {
     this.postGalleryItem();
   }
